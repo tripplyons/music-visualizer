@@ -1,12 +1,9 @@
 import * as THREE from 'three';
-// import THREEcap from 'threecap';
-// import EffectComposer from 'three/examples/jsm/postprocessing/EffectComposer.js'
 
 import vertexShader from '../static/main.vert';
 import fragmentShader from '../static/main.frag';
 
 let camera, scene, renderer;
-let videoTexture, video;
 let audio, audioCtx, analyser, source;
 let uniforms;
 let loaded = false;
@@ -53,20 +50,6 @@ async function init() {
   });
   renderer.setPixelRatio( window.devicePixelRatio );
   document.body.appendChild( renderer.domElement );
-  // var composer = new EffectComposer(renderer);
-
-  // var threecap = new THREEcap();
-  // threecap.record({
-  //   width: 640,
-  //   height: 480,
-  //   fps: 25,
-  //   time: 10,
-  //   format: 'mp4',
-  //   //canvas: canvasDomElement,   // optional, slowest
-  //   composer: composer // optional, fastest
-  // }).then(function(video) {
-  //   video.saveFile('myVideo.mp4');
-  // });
   
   onWindowResize();
 
@@ -78,19 +61,10 @@ async function init() {
   audio = new Audio('/static/audio.mp3');
   audio.play();
 
-  // video = document.getElementById('video');
-  // video.play();
   source = audioCtx.createMediaElementSource(audio);
   
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
-
-  // videoTexture = new THREE.VideoTexture(video);
-  // const videoMaterial =  new THREE.MeshBasicMaterial( {map: videoTexture, side: THREE.FrontSide, toneMapped: false} );
-
-  // videoTexture = new THREE.VideoTexture(video);
-
-  // scene.background = videoTexture;
 
   animate();
 }
@@ -111,9 +85,7 @@ let lastZoom = 0.5;
 function animate() {
   requestAnimationFrame( animate );
 
-  let oldTime = uniforms[ 'time' ].value;
   uniforms[ 'time' ].value = performance.now() / 1000;
-  let deltaTime = uniforms[ 'time' ].value - oldTime;
 
   let bufferLength = analyser.frequencyBinCount;
   let dataArray = new Float32Array(bufferLength);
@@ -151,16 +123,10 @@ function animate() {
   }
   avg = Math.sqrt(avg);
 
-  // let interpAvg = 0.99 * (lastAvg - avg) + avg;
   for(let i = 0; i < 512; i++) {
     let x = uniforms[ 'fft' ].value[i];
-    // uniforms[ 'fft' ].value[i] = 1 / (1 + Math.exp(x - avg));
     uniforms[ 'fft' ].value[i] = (x - avg) / (avg + 2);
   }
-  // lastAvg = interpAvg;
-  // console.log(avg);
-
-  // console.log(uniforms[ 'fft' ].value.reduce((a, b) => a + b));
 
   let sumData = dataArray
     .map(Math.abs)
