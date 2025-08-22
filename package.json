@@ -1,0 +1,28 @@
+{
+  "name": "visualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --mode development",
+    "build": "rm -rf dist && webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.135.0",
+    "threecap": "^0.2.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^13.0.1",
+    "html-webpack-plugin": "^5.6.4",
+    "raw-loader": "^4.0.2",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
+}
