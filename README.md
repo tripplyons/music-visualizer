@@ -1,6 +1,6 @@
-# Song Visualizer
+# Music Visualizer
 
-A Three.js-based audio visualizer that creates real-time visual effects based on audio frequency analysis.
+Real-time audio visualizer based on frequency spectrum.
 
 ## Development
 
@@ -36,14 +36,6 @@ pnpm run build
 ```
 
 The built files will be in the `dist/` directory.
-
-### Deployment
-
-Deploy to Surge.sh:
-
-```bash
-pnpm run deploy
-```
 
 ## Project Structure
 
