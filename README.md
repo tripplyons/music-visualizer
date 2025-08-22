@@ -1,6 +1,6 @@
 # Music Visualizer
 
-Real-time audio visualizer based on frequency spectrum.
+Real-time audio visualizer based on frequency spectrum, inspired by Trap Nation's and NCS's visualizers.
 
 ## Web Demo
 
