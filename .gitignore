@@ -1,4 +1,3 @@
 node_modules/
-static/image.png
-static/audio.mp3
 dist/
+.vercel
