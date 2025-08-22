@@ -2,7 +2,13 @@
 
 Real-time audio visualizer based on frequency spectrum.
 
+## Web Demo
+
 [music-visualizer.tripplyons.com](https://music-visualizer.tripplyons.com/)
+
+## Video Demo
+
+[![Video Demo](screenshot.png)](https://www.youtube.com/watch?v=MhHVaCrQ-ZU)
 
 ## Development
 
